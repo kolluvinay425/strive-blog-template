@@ -9,7 +9,9 @@ const BlogList = () => {
   const [posts, setPosts] = useState([]);
 
   const fetchData = async () => {
-    const response = await fetch("http://localhost:3001/blogposts/");
+    const response = await fetch(
+      "https://striveblogposts.herokuapp.com/blogposts"
+    );
     try {
       if (response.ok) {
         const data = await response.json();
