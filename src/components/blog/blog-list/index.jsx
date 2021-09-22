@@ -7,11 +7,9 @@ import BlogAuthor from "../blog-author";
 
 const BlogList = () => {
   const [posts, setPosts] = useState([]);
-
+  const url = process.env.BE_URL;
   const fetchData = async () => {
-    const response = await fetch(
-      "https://striveblogposts.herokuapp.com/blogposts"
-    );
+    const response = await fetch(`${url}/blogposts`);
     try {
       if (response.ok) {
         const data = await response.json();
