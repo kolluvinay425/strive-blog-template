@@ -10,14 +10,13 @@ const BlogList = () => {
 
   const fetchData = async () => {
     // const url = process.env.REACT_APP_BE_URL;
-    const response = await fetch(
-      `https://striveblogposts.herokuapp.com/blogposts`
-    );
+    const response = await fetch(`${process.env.REACT_APP_BE_URL}/blogposts`);
     try {
       if (response.ok) {
         const data = await response.json();
         console.log("dataaaa------>", data);
         setPosts(data);
+        console.log(process.env.REACT_APP_BE_URL);
       }
     } catch (error) {
       console.log(error);
