@@ -4,15 +4,28 @@ import ReactQuill from "react-quill";
 import { Container, Form, Button } from "react-bootstrap";
 import "./styles.css";
 export default class NewBlogPost extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: "" };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(value) {
-    this.setState({ text: value });
-  }
+  state = {
+    postForm: {
+      category: "",
+      title: "",
+      cover: "",
+      readTime: {
+        value: " ",
+        unit: "",
+      },
+      author: {
+        name: "",
+        avatar: "",
+      },
+      content: "",
+      comments: [
+        {
+          authorName: "",
+          text: "",
+        },
+      ],
+    },
+  };
 
   render() {
     return (
@@ -24,7 +37,19 @@ export default class NewBlogPost extends Component {
           </Form.Group>
           <Form.Group controlId="blog-category" className="mt-3">
             <Form.Label>Category</Form.Label>
-            <Form.Control size="lg" as="select">
+            <Form.Control
+              // value={this.state.postForm.category}
+              // onChange={(e) =>
+              //   this.setState({
+              //     postForm: {
+              //       ...this.state.postForm,
+              //       category: e.target.value,
+              //     },
+              //   })
+              // }
+              size="lg"
+              as="select"
+            >
               <option>Category1</option>
               <option>Category2</option>
               <option>Category3</option>
